@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     public float MaxSpeed = 5;
 
     bool impulseTriggered = false;
-    bool dead = false;
 
     void Update()
     {
@@ -18,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (impulseTriggered && !dead) {
+        if (impulseTriggered && !GameManager.Instance.IsGameOver) {
             ImpulsePlayer();
         }
     }
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Obstacle") {
-            dead = true;
+            GameManager.Instance.GameOver();
         }
     }
 

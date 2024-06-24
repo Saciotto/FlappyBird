@@ -5,14 +5,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     public float ObstacleSpawnInterval;
     public float ObstacleMinHeight;
     public float ObstacleMaxHeight;
     public GameObject Obstacle;
     public GameObject ObstacleSpawnPosition;
     public GameObject ObstacleDestroyPosition;
+    public bool IsGameOver = false;
 
     float spawnTimeout = 0;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+        } else {
+            Instance = this;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Update() {
         SpawnObstacle();
@@ -27,5 +40,10 @@ public class GameManager : MonoBehaviour
             obstacle.GetComponent<ObstacleController>().DestroyPosition = ObstacleDestroyPosition;
             spawnTimeout = ObstacleSpawnInterval;
         }
+    }
+
+    public void GameOver()
+    {
+        IsGameOver = true;
     }
 }

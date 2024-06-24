@@ -9,8 +9,10 @@ public class ObstacleController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveObstacle();
-        DestroyObstacleIfOutOfScene();
+        if (!GameManager.Instance.IsGameOver) {
+            MoveObstacle();
+            DestroyObstacleIfOutOfScene();
+        }
     }
 
     void MoveObstacle()

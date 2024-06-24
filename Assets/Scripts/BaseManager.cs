@@ -17,8 +17,10 @@ public class BaseController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveBase();
-        TestResetPosition();
+        if (!GameManager.Instance.IsGameOver) {
+            MoveBase();
+            TestResetPosition();
+        }
     }
 
     void MoveBase()
