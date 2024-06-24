@@ -18,7 +18,7 @@ public class BaseController : MonoBehaviour
     void FixedUpdate()
     {
         MoveBase();
-        RemoveIfBaseIsOutOfTheScene();
+        TestResetPosition();
     }
 
     void MoveBase()
@@ -26,11 +26,10 @@ public class BaseController : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, DestroyPosition.transform.position, Speed * Time.deltaTime);
     }
 
-    void RemoveIfBaseIsOutOfTheScene()
+    void TestResetPosition()
     {
         if (transform.position == DestroyPosition.transform.position) {
-            Instantiate(gameObject, SpawnPosition.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            transform.position = SpawnPosition.transform.position;
         }
     }
 }
