@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7446154967414907741}
-  - component: {fileID: 2465503706206467594}
+  - component: {fileID: 4838120510094668511}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -348,7 +348,7 @@ Transform:
   - {fileID: 1149953538064042596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2465503706206467594
+--- !u!114 &4838120510094668511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -357,8 +357,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8535023170587373523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b59ec7437ffc2384b8baf9a132b32772, type: 3}
+  m_Script: {fileID: 11500000, guid: 56964b6d5acde4f488d7a7c3f5f5f0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 0
   DestroyPosition: {fileID: 0}

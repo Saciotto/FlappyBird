@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8487494449214829743}
   - component: {fileID: 5804785865175082227}
-  - component: {fileID: 6573574260372151741}
+  - component: {fileID: 6396665739768686930}
   m_Layer: 0
   m_Name: Base
   m_TagString: Obstacle
@@ -167,7 +167,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.758804, y: 1.0968709}
   m_EdgeRadius: 0
---- !u!114 &6573574260372151741
+--- !u!114 &6396665739768686930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,12 +176,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4413103591894267880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a5ad51fd1573b42a8d978b97971326, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a04ab7adf08f78469ff34a76698243d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
-  SpawnPosition: {fileID: 0}
-  DestroyPosition: {fileID: 0}
 --- !u!1 &6732639555389177600
 GameObject:
   m_ObjectHideFlags: 0
