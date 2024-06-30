@@ -37,8 +37,6 @@ public class Scenario : MonoBehaviour
             Instance = this;
             obstaclePool = new ObjectPool<GameObject>(CreateObstacle, OnGetObstacleFromPool, OnReleaseObstacleToPool, OnDestroyObstacle);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -54,6 +52,14 @@ public class Scenario : MonoBehaviour
         floor.Speed = Speed;
         floor.SpawnPosition = BaseSpawnPosition;
         floor.DestroyPosition = BaseDestroyPosition;
+    }
+
+    private void Update()
+    {
+        if (GameEvents.Instance.CurrentState == GameState.Init && (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0)))
+        {
+            GameEvents.Instance.SetCurrentState(GameState.Alive);
+        }
     }
 
     private GameObject CreateObstacle()
