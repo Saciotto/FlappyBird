@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
+    - target: {fileID: 4413103591894267880, guid: d807131f679da0746b577bd7a8ac8b8b, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 6396665739768686930, guid: d807131f679da0746b577bd7a8ac8b8b, type: 3}
       propertyPath: SpawnPosition
       value: 

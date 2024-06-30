@@ -12,6 +12,14 @@ public class Player : MonoBehaviour
     }
 
     private bool impulsePressed = false;
+    private Animator animator;
+    private Rigidbody2D body;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        body = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -25,17 +33,19 @@ public class Player : MonoBehaviour
     {
         if (impulsePressed)
         {
-            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * Impulse, ForceMode2D.Impulse);
+            body.velocity = Vector2.zero;
+            body.AddForce(Vector2.up * Impulse, ForceMode2D.Impulse);
             impulsePressed = false;
+        }
+
+        if (GameEvents.Instance.CurrentState != GameState.GameOver)
+        {
+            animator.SetFloat("Speed", body.velocity.y);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Animator animator = GetComponent<Animator>();
-
         if (collision.gameObject.tag == "Obstacle")
         {
             GameEvents.Instance.SetCurrentState(GameState.Dead);

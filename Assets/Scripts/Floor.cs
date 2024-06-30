@@ -19,7 +19,8 @@ public class Floor : MonoBehaviour
 
         if (transform.position.x <= DestroyPosition.transform.position.x)
         {
-            transform.position = SpawnPosition.transform.position;
+            float x = SpawnPosition.transform.position.x - (DestroyPosition.transform.position.x - transform.position.x);
+            transform.position = new Vector2(x, SpawnPosition.transform.position.y);
         }
     }
 }
