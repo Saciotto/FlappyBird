@@ -1952,6 +1952,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Impulse: 3
+  FlySound: {fileID: 8300000, guid: 60bede1724fc93b44b2f6c9b0abcaec4, type: 3}
+  HitSound: {fileID: 8300000, guid: 377275134629d0d4e91241682c759553, type: 3}
+  DieSound: {fileID: 8300000, guid: 7b04e3e1d5cb5794e93e81ac7f48fc8a, type: 3}
+  PointSound: {fileID: 8300000, guid: 0a64c43aabaa17e44bc5790195eaf0f3, type: 3}
 --- !u!95 &1722302729
 Animator:
   serializedVersion: 5

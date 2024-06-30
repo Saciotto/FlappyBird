@@ -5,6 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float Impulse;
+    public AudioClip FlySound;
+    public AudioClip HitSound;
+    public AudioClip DieSound;
+    public AudioClip PointSound;
 
     public bool isAlive
     {
@@ -33,6 +37,7 @@ public class Player : MonoBehaviour
     {
         if (impulsePressed)
         {
+            AudioSource.PlayClipAtPoint(FlySound, transform.position);
             body.velocity = Vector2.zero;
             body.AddForce(Vector2.up * Impulse, ForceMode2D.Impulse);
             impulsePressed = false;
@@ -48,11 +53,13 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
+            AudioSource.PlayClipAtPoint(HitSound, transform.position);
             GameEvents.Instance.SetCurrentState(GameState.Dead);
             animator.SetBool("IsAlive", false);
         }
         else if (collision.gameObject.tag == "Floor")
         {
+            AudioSource.PlayClipAtPoint(DieSound, transform.position);
             GameEvents.Instance.SetCurrentState(GameState.GameOver);
             animator.SetBool("IsAlive", false);
         }
@@ -60,6 +67,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AudioSource.PlayClipAtPoint(PointSound, transform.position);
         GameEvents.Instance.PlayerScores();
     }
 }
