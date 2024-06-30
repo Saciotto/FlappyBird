@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public enum GameState
@@ -14,6 +15,8 @@ public class GameEvents : MonoBehaviour
 
     public GameState CurrentState;
     public event Action<GameState> OnCurrentStateChanged = null;
+    public TextMeshProUGUI ScoreText;
+    public int Score = 0;
 
     private void Awake()
     {
@@ -25,7 +28,6 @@ public class GameEvents : MonoBehaviour
         {
             Instance = this;
         }
-
         DontDestroyOnLoad(gameObject);
     }
 
@@ -36,5 +38,11 @@ public class GameEvents : MonoBehaviour
             CurrentState = state;
             OnCurrentStateChanged?.Invoke(CurrentState);
         }
+    }
+
+    public void PlayerScores()
+    {
+        Score++;
+        ScoreText.SetText(Score.ToString());
     }
 }

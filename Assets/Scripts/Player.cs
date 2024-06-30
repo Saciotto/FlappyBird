@@ -57,4 +57,9 @@ public class Player : MonoBehaviour
             animator.SetBool("IsAlive", false);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameEvents.Instance.PlayerScores();
+    }
 }
